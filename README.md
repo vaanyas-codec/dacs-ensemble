@@ -24,8 +24,10 @@ They supersede any older numbers or framing elsewhere in this repository.
    screened for label-leaking artefacts and none was found. (`PREREGISTRATION.md` is a frozen historical file and still
    quotes the old "4 of 12"; that figure is superseded by this erratum.)
 3. **Ablation (exploratory):** removing the iterative revision rounds changes mean accuracy by about 0.01 pp on the 12
-   main datasets (largest single-dataset difference 0.72 pp). **The "debate" step adds essentially nothing; the benefit
-   comes from selection and reliability weighting.** The method name overstates what the evidence supports.
+   main datasets (largest single-dataset difference 0.72 pp). **The "debate" step adds essentially nothing.** Later
+   analyses (items 4, 9 and 10 below) show the gain over soft voting comes mainly from dropping one badly matched member
+   of the voting baseline and from using a larger pool with accuracy weighting; the diversity step adds nothing beyond
+   that. The method name overstates what the evidence supports.
 4. **Where the gain over soft voting comes from (post hoc, 12 main datasets, identical folds, `run_baselines.py`):** every
    arm that picks or weights members of the same 13-classifier pool by cross-validated accuracy beats soft voting over
    four fixed classifiers. Mean accuracy: soft voting 83.06%, best single classifier 83.41%, all 13 weighted 84.07%,
