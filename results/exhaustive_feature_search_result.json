@@ -1,0 +1,13 @@
+{
+  "search_space": "All C(13,3) + C(13,4) = 1001 feature subsets, matching Latha & Jeeva (2019)'s search space",
+  "selection_protocol": "Each subset evaluated once on a single inner train/validation split (75/25 of the training fold), beta fixed at 0.1",
+  "best_subset_by_validation": ["trestbps", "oldpeak", "thal"],
+  "best_subset_validation_accuracy": 0.8667,
+  "best_subset_properly_evaluated_10fold_cv": 0.7744,
+  "best_subset_10fold_cv_std": 0.0378,
+  "all_13_features_no_selection_10fold_cv": 0.8417,
+  "voting_baseline_same_3_features_10fold_cv": 0.7777,
+  "mcnemar_p_subset_vs_voting": 0.8551,
+  "source_paper_best": 0.8548,
+  "finding": "The feature subset that looked best on a single validation split (0.8667) did not generalize: full repeated 10-fold CV on that exact subset gives 0.7744, substantially below both the no-selection result (0.8417) and the source paper's 0.8548. This is selection-induced overfitting: picking the maximum of 1001 noisy single-split estimates is optimistic by construction, a smaller-scale version of the same test-set-leakage family of problem this project already diagnosed and corrected once before (Section IV). The honest conclusion is that this specific exhaustive-search attempt did not close the gap and should not be used; the 1.31-point shortfall against the source paper's best remains unresolved by this method."
+}

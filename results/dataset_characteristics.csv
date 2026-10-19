@@ -1,0 +1,13 @@
+dataset,n,features,positive_pct,missing_cells_before_imputation
+pima_diabetes,768,8,34.9,652
+heart_disease,297,13,46.1,0
+australian_credit,690,14,44.5,0
+haberman_survival,306,3,26.5,0
+liver_disorders,345,5,44.9,0
+magic_gamma,3000,10,64.8,0
+spambase,2000,57,39.4,0
+banknote_auth,1372,4,44.5,0
+breast_cancer_wisconsin,683,9,35.0,0
+german_credit,1000,48,30.0,0
+ionosphere,351,34,64.1,0
+sonar,208,60,46.6,0

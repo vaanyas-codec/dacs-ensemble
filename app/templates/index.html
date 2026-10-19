@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DACS + Debate Ensemble Demo</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 860px; margin: 32px auto; padding: 0 16px; color: #1a1a1a; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .sub { color: #555; margin-bottom: 24px; }
+  .controls { display: flex; gap: 16px; align-items: end; flex-wrap: wrap; margin-bottom: 20px; }
+  label { display: block; font-size: 0.8rem; color: #555; margin-bottom: 4px; }
+  select, input { padding: 8px; font-size: 1rem; }
+  button { padding: 9px 18px; font-size: 1rem; cursor: pointer; border: 0; background: #1f4e79; color: #fff; border-radius: 4px; }
+  button:disabled { opacity: 0.5; cursor: wait; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; font-size: 0.9rem; }
+  th { background: #f0f0f0; }
+  .card { border: 1px solid #ddd; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+  .win { color: #146c2e; font-weight: 600; }
+  .loss { color: #a32020; font-weight: 600; }
+  .note { font-size: 0.8rem; color: #666; }
+  .err { color: #a32020; }
+</style>
+</head>
+<body>
+<h1>DACS + Consensus/Debate Ensemble</h1>
+<div class="sub">Pick a dataset and a persuadability (beta). The demo runs one 80/20 split and compares the debate ensemble to soft voting.</div>
+
+<div class="controls">
+  <div>
+    <label for="dataset">Dataset</label>
+    <select id="dataset">
+      {% for key, name in datasets.items() %}
+      <option value="{{ key }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
+    <label for="beta">Beta (0 to 1, exclusive)</label>
+    <input id="beta" type="number" step="0.05" min="0.05" max="0.95" value="0.3">
+  </div>
+  <button id="run">Run</button>
+</div>
+
+<div id="out"></div>
+
+<script>
+const out = document.getElementById('out');
+const btn = document.getElementById('run');
+
+btn.addEventListener('click', async () => {
+  btn.disabled = true;
+  out.innerHTML = '<div class="note">Running... larger datasets can take a minute.</div>';
+  try {
+    const resp = await fetch('/run', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        dataset: document.getElementById('dataset').value,
+        beta: parseFloat(document.getElementById('beta').value)
+      })
+    });
+    const d = await resp.json();
+    if (!resp.ok) { out.innerHTML = '<div class="err">' + (d.error || 'Request failed') + '</div>'; return; }
+
+    const cls = d.improvement_pp > 0 ? 'win' : (d.improvement_pp < 0 ? 'loss' : '');
+    const sign = d.improvement_pp > 0 ? '+' : '';
+    const cacheNote = d.cache_hit ? ' <span style="color:#888">(served from cached model)</span>' : ' <span style="color:#888">(trained fresh, now cached)</span>';
+    let html = '<div class="card"><b>' + d.dataset + '</b> (n=' + d.n_samples + ', features=' + d.n_features + ', test=' + d.n_test + ')' + cacheNote + '<br>' +
+      'Debate ensemble: <b>' + d.debate_acc + '</b> &nbsp; Soft voting: <b>' + d.voting_acc + '</b> &nbsp; ' +
+      '<span class="' + cls + '">' + sign + d.improvement_pp + ' pp</span></div>';
+
+    html += '<div class="card"><b>Selected classifiers</b><table><tr><th>Classifier</th><th>CV accuracy</th><th>Weight</th></tr>';
+    d.classifiers.forEach(c => { html += '<tr><td>' + c.name + '</td><td>' + c.cv_acc + '</td><td>' + c.weight + '</td></tr>'; });
+    html += '</table>Diversity (mean pairwise disagreement): ' + d.diversity + ' &nbsp; Accuracy spread: ' + d.spread + '</div>';
+
+    html += '<div class="card"><b>Accuracy by debate round</b><table><tr><th>Round</th>' +
+      d.rounds.map((_, i) => '<th>' + i + '</th>').join('') + '</tr><tr><td>Accuracy</td>' +
+      d.rounds.map(a => '<td>' + a + '</td>').join('') + '</tr></table></div>';
+
+    html += '<div class="note">' + d.note + '</div>';
+    out.innerHTML = html;
+  } catch (e) {
+    out.innerHTML = '<div class="err">Error: ' + e + '</div>';
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

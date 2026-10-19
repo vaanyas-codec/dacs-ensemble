@@ -1,0 +1,13 @@
+dataset,n,n_folds,diversity_mean,voting_acc,dacs_debate_acc,delta_pp,mcnemar_p_raw,holm_p,verdict_after_holm
+pima_diabetes,768,10,0.1677,0.7617,0.7539,-0.78,0.2665,1.0,not significant
+heart_disease,297,10,0.1185,0.8131,0.8417,2.86,0.0041,0.0406,win
+australian_credit,690,10,0.1266,0.8543,0.8522,-0.22,0.8521,1.0,not significant
+haberman_survival,306,10,0.134,0.7435,0.7336,-0.99,0.3768,1.0,not significant
+liver_disorders,345,10,0.2167,0.6261,0.642,1.59,0.1696,1.0,not significant
+magic_gamma,3000,5,0.1415,0.8067,0.841,3.43,0.0,0.0,win
+spambase,2000,5,0.0946,0.9385,0.9325,-0.6,0.241,1.0,not significant
+banknote_auth,1372,10,0.0374,0.9945,0.9989,0.44,0.0015,0.0165,win
+breast_cancer_wisconsin,683,10,0.0479,0.9685,0.9671,-0.15,0.8026,1.0,not significant
+german_credit,1000,10,0.1986,0.7325,0.75,1.75,0.0562,0.5056,not significant
+ionosphere,351,10,0.0907,0.923,0.9345,1.14,0.1356,1.0,not significant
+sonar,208,10,0.304,0.8049,0.7977,-0.73,0.7794,1.0,not significant

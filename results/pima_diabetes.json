@@ -1,0 +1,12 @@
+{
+  "n": 768,
+  "dacs_mean": 0.7538833715304303,
+  "dacs_std": 0.0239762687835061,
+  "voting_mean": 0.7616713352007469,
+  "voting_std": 0.034381711073312685,
+  "spread_mean": 0.03890403315797865,
+  "diversity_mean": 0.1676731724971973,
+  "mcnemar_p": 0.26649612895753194,
+  "n_folds": 10,
+  "note": "Recomputed with raw data and in-fold median imputation (earlier file leaked labels)."
+}

@@ -1,0 +1,110 @@
+{
+  "mean_acc": {
+    "V": 0.8306173372228578,
+    "B": 0.8341379900737612,
+    "W": 0.8406799871269995,
+    "T": 0.841020145721057,
+    "S": 0.8369402721453075,
+    "A": 0.8370820747157115
+  },
+  "mean_rank": {
+    "V": 4.458333333333333,
+    "B": 3.8333333333333335,
+    "W": 2.6666666666666665,
+    "T": 2.4166666666666665,
+    "S": 3.9166666666666665,
+    "A": 3.7083333333333335
+  },
+  "pairs": [
+    {
+      "pair": "A vs V",
+      "mean_diff_pp": 0.646,
+      "median_diff_pp": 0.145,
+      "wins": 6,
+      "losses": 6,
+      "wilcoxon_p": 0.3013,
+      "mcnemar_raw_p_lt_0.05_better": 3,
+      "mcnemar_raw_p_lt_0.05_worse": 0
+    },
+    {
+      "pair": "A vs B",
+      "mean_diff_pp": 0.294,
+      "median_diff_pp": -0.003,
+      "wins": 6,
+      "losses": 6,
+      "wilcoxon_p": 0.9697,
+      "mcnemar_raw_p_lt_0.05_better": 1,
+      "mcnemar_raw_p_lt_0.05_worse": 0
+    },
+    {
+      "pair": "A vs W",
+      "mean_diff_pp": -0.36,
+      "median_diff_pp": -0.545,
+      "wins": 4,
+      "losses": 8,
+      "wilcoxon_p": 0.3013,
+      "mcnemar_raw_p_lt_0.05_better": 1,
+      "mcnemar_raw_p_lt_0.05_worse": 1
+    },
+    {
+      "pair": "A vs T",
+      "mean_diff_pp": -0.394,
+      "median_diff_pp": -0.328,
+      "wins": 3,
+      "losses": 8,
+      "wilcoxon_p": 0.123,
+      "mcnemar_raw_p_lt_0.05_better": 0,
+      "mcnemar_raw_p_lt_0.05_worse": 2
+    },
+    {
+      "pair": "A vs S",
+      "mean_diff_pp": 0.014,
+      "median_diff_pp": 0.038,
+      "wins": 8,
+      "losses": 4,
+      "wilcoxon_p": 0.5693,
+      "mcnemar_raw_p_lt_0.05_better": 1,
+      "mcnemar_raw_p_lt_0.05_worse": 0
+    },
+    {
+      "pair": "S vs T",
+      "mean_diff_pp": -0.408,
+      "median_diff_pp": -0.292,
+      "wins": 5,
+      "losses": 7,
+      "wilcoxon_p": 0.2036,
+      "mcnemar_raw_p_lt_0.05_better": 0,
+      "mcnemar_raw_p_lt_0.05_worse": 3
+    },
+    {
+      "pair": "T vs V",
+      "mean_diff_pp": 1.04,
+      "median_diff_pp": 0.692,
+      "wins": 10,
+      "losses": 1,
+      "wilcoxon_p": 0.0322,
+      "mcnemar_raw_p_lt_0.05_better": 4,
+      "mcnemar_raw_p_lt_0.05_worse": 0
+    },
+    {
+      "pair": "W vs V",
+      "mean_diff_pp": 1.006,
+      "median_diff_pp": 0.543,
+      "wins": 11,
+      "losses": 1,
+      "wilcoxon_p": 0.001,
+      "mcnemar_raw_p_lt_0.05_better": 3,
+      "mcnemar_raw_p_lt_0.05_worse": 0
+    },
+    {
+      "pair": "B vs V",
+      "mean_diff_pp": 0.352,
+      "median_diff_pp": 0.35,
+      "wins": 8,
+      "losses": 4,
+      "wilcoxon_p": 0.3394,
+      "mcnemar_raw_p_lt_0.05_better": 3,
+      "mcnemar_raw_p_lt_0.05_worse": 1
+    }
+  ]
+}

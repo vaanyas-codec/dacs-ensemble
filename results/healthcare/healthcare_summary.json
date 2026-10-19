@@ -1,0 +1,167 @@
+{
+  "datasets": {
+    "wdbc": {
+      "n": 569,
+      "features": 30,
+      "positive_pct": 62.7,
+      "majority_class_pct": 62.7,
+      "missing_cells": 0,
+      "V": 0.9587020648967552,
+      "B": 0.9727682036950782,
+      "W": 0.9648501785437045,
+      "T": 0.9727759664648346,
+      "S": 0.9639807483310043,
+      "A": 0.9639807483310043
+    },
+    "hepatitis": {
+      "n": 154,
+      "features": 19,
+      "positive_pct": 20.8,
+      "majority_class_pct": 79.2,
+      "missing_cells": 153,
+      "V": 0.8245161290322581,
+      "B": 0.8372043010752689,
+      "W": 0.8406451612903225,
+      "T": 0.8374193548387098,
+      "S": 0.824516129032258,
+      "A": 0.824516129032258
+    },
+    "breast_cancer_ljubljana": {
+      "n": 286,
+      "features": 41,
+      "positive_pct": 29.7,
+      "majority_class_pct": 70.3,
+      "missing_cells": 0,
+      "V": 0.6713853599516032,
+      "B": 0.7028735632183909,
+      "W": 0.7218995765275257,
+      "T": 0.7201451905626133,
+      "S": 0.7323049001814882,
+      "A": 0.7340592861464005
+    },
+    "prostate_recurrence": {
+      "n": 316,
+      "features": 15,
+      "positive_pct": 17.1,
+      "majority_class_pct": 82.9,
+      "missing_cells": 33,
+      "V": 0.8274801587301589,
+      "B": 0.8290426587301587,
+      "W": 0.8306051587301587,
+      "T": 0.8275049603174602,
+      "S": 0.8290426587301587,
+      "A": 0.8274553571428571
+    }
+  },
+  "comparisons": {
+    "A-V": {
+      "mean_diff_pp": 1.698195201043612,
+      "per_dataset": {
+        "wdbc": {
+          "diff_pp": 0.5278683434249087,
+          "p_raw": 0.30743416592739536,
+          "holm_p": 0.9223024977821861,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "hepatitis": {
+          "diff_pp": -1.1102230246251565e-14,
+          "p_raw": 0.8230632737581214,
+          "holm_p": 1.0,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "breast_cancer_ljubljana": {
+          "diff_pp": 6.267392619479728,
+          "p_raw": 0.0009423724051516036,
+          "holm_p": 0.0037694896206064143,
+          "sig_up": true,
+          "sig_down": false
+        },
+        "prostate_recurrence": {
+          "diff_pp": -0.0024801587301781503,
+          "p_raw": 0.8445192674729399,
+          "holm_p": 1.0,
+          "sig_up": false,
+          "sig_down": false
+        }
+      },
+      "n_sig_better": 1,
+      "n_sig_worse": 0
+    },
+    "A-T": {
+      "mean_diff_pp": -0.19584878827744734,
+      "per_dataset": {
+        "wdbc": {
+          "diff_pp": -0.8795218133830218,
+          "p_raw": 0.07755616674366539,
+          "holm_p": 0.31022466697466156,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "hepatitis": {
+          "diff_pp": -1.2903225806451757,
+          "p_raw": 0.3427817111479112,
+          "holm_p": 0.6855634222958225,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "breast_cancer_ljubljana": {
+          "diff_pp": 1.39140955837872,
+          "p_raw": 0.20124262095772383,
+          "holm_p": 0.6037278628731715,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "prostate_recurrence": {
+          "diff_pp": -0.004960317460311892,
+          "p_raw": 0.8136637157667919,
+          "holm_p": 0.8136637157667919,
+          "sig_up": false,
+          "sig_down": false
+        }
+      },
+      "n_sig_better": 0,
+      "n_sig_worse": 0
+    },
+    "S-T": {
+      "mean_diff_pp": -0.20002589771771495,
+      "per_dataset": {
+        "wdbc": {
+          "diff_pp": -0.8795218133830218,
+          "p_raw": 0.07755616674366539,
+          "holm_p": 0.31022466697466156,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "hepatitis": {
+          "diff_pp": -1.2903225806451757,
+          "p_raw": 0.3427817111479112,
+          "holm_p": 0.795616177774522,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "breast_cancer_ljubljana": {
+          "diff_pp": 1.2159709618874914,
+          "p_raw": 0.2652053925915073,
+          "holm_p": 0.795616177774522,
+          "sig_up": false,
+          "sig_down": false
+        },
+        "prostate_recurrence": {
+          "diff_pp": 0.15376984126984627,
+          "p_raw": 1.0,
+          "holm_p": 1.0,
+          "sig_up": false,
+          "sig_down": false
+        }
+      },
+      "n_sig_better": 0,
+      "n_sig_worse": 0
+    }
+  },
+  "decision": {
+    "method_better_than_voting_on_medical_data": "NOT SUPPORTED",
+    "diversity_step_helps": "NOT SUPPORTED"
+  }
+}

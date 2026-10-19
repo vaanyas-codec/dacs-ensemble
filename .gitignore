@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+venv/
+env/
+results_final/
+.DS_Store
+*.pdf.bak
+node_modules/
+
+app/model_cache/
