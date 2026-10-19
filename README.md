@@ -18,7 +18,7 @@ They supersede any older numbers or framing elsewhere in this repository.
    after Holm correction (before the margin: 0 wins, 1 loss). Nominally ahead on 6 of 12; mean +0.65 pp, median +0.15 pp.
    Heart passes narrowly (Holm p = 0.041). *Caveat:* the margin was chosen after seeing the earlier rule fail on
    Banknote, a dataset in this evaluation, so this is not a clean held-out confirmation.
-2. **Confirmatory test (7 unseen datasets, protocol frozen in `PREREGISTRATION.md` before any run, commit `26dea9f`):**
+2. **Confirmatory test (7 unseen datasets, protocol written in `PREREGISTRATION.md` before any run; it was committed as `26dea9f` in the authors' earlier working repository, whose history is not included here, so this is a self-reported timestamp):**
    ahead of soft voting on 6, tied on 1, never behind; mean +1.53 pp; exact sign test p = 0.031; only phoneme is
    individually significant after Holm correction (+6.4 pp); mean gain excluding phoneme +0.71 pp. These 7 datasets were
    screened for label-leaking artefacts and none was found. (`PREREGISTRATION.md` is a frozen historical file and still
